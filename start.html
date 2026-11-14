@@ -39,6 +39,16 @@ video{width:100%;border-radius:18px;background:#000;display:block}
 .qr{display:flex;gap:16px;align-items:center}.qr img{width:150px;height:150px;border-radius:12px;background:#fff;padding:8px;border:1px solid var(--line)}
 .arrow{position:fixed;bottom:8px;left:50%;transform:translateX(-50%);z-index:9;display:none;flex-direction:column;align-items:center;color:#fff;background:var(--folio);border-radius:16px;padding:8px 14px;font-weight:700;font-size:15px;box-shadow:0 8px 24px rgba(0,0,0,.3);animation:bob 1.2s ease-in-out infinite}
 @keyframes bob{50%{transform:translate(-50%,6px)}}
+.lead{font-size:20px!important;color:var(--ink)!important;line-height:1.8}
+.huge{font-size:24px;padding:20px}
+.shots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:6px}
+.shots figure{min-width:0;margin:0;background:var(--soft);border:1px solid var(--line);border-radius:18px;padding:10px 8px 12px;text-align:center}
+.shots img{width:100%;max-width:190px;height:auto;display:block;margin:0 auto 8px}
+.shots figcaption{font-size:16px;font-weight:600;line-height:1.55;text-align:center}
+.shots figcaption i{font-style:normal;display:block;width:30px;height:30px;line-height:30px;margin:0 auto 4px;border-radius:50%;background:var(--gold);color:#1C140A;font-weight:700}
+.small{font-size:16px;color:var(--mut);margin:12px 0 0!important}
+.note.warn{background:#FFF3DC;color:#5a3d00;font-size:18px;border:1px solid #E8C77A}
+@media (min-width:700px){.shots{grid-template-columns:repeat(3,minmax(0,1fr))}}
 [hidden]{display:none!important}
 footer{text-align:center;color:var(--mut);font-size:14px;padding:10px 16px 30px}
 </style></head><body>
@@ -46,36 +56,27 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:10px 16px 30px}
 <main class="wrap">
 
 <section class="card" id="cAndroid" hidden>
-  <h2>تثبيت التطبيق</h2><p>اضغط الزر، وبعدها «تثبيت». يطلع التطبيق في شاشة جوالك مثل أي برنامج.</p>
-  <button class="big gold" id="inst">تثبيت التطبيق</button>
+  <h2>جوالك أندرويد</h2><p class="lead">اضغط الزر، وبعدها اضغط «تثبيت». ويطلع التطبيق في شاشة جوالك.</p>
+  <button class="big gold huge" id="inst">تثبيت التطبيق</button>
   <div id="andHelp" hidden>
-    <ol class="steps"><li><span>اضغط زر القائمة <span class="ico"><svg viewBox="0 0 24 24" fill="#0A84FF" stroke="none"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg></span> فوق على اليسار (أو تحت في بعض الجوالات).</span></li>
-    <li><span>اختر <b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b>.</span></li><li><span>اضغط <b>«تثبيت»</b> أو <b>«إضافة»</b>، وبيطلع في شاشتك.</span></li></ol>
+    <ol class="steps"><li><span>اضغط <b>⋮</b> فوق.</span></li>
+    <li><span>اختر <b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b>.</span></li><li><span>اضغط <b>«تثبيت»</b>.</span></li></ol>
   </div>
-  <a class="big ghost" href="./#k=554894" style="margin-top:10px">فتح التطبيق بدون تثبيت</a>
 </section>
 
 <section class="card" id="cIOS" hidden>
-  <h2>إضافة التطبيق لشاشة <span id="devN">الآيفون</span></h2><p>ثلاث خطوات من متصفح سفاري، وبعدها يفتح من شاشتك مثل أي تطبيق.</p>
-  <ol class="steps">
-    <li><span>اضغط زر المشاركة <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11v9h12v-9"/></svg></span> <span id="whereS">أسفل الشاشة</span>.<br><small style="color:var(--mut)">إذا ما لقيته: اضغط <span class="ico"><svg viewBox="0 0 24 24" fill="#0A84FF" stroke="none"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></span> <span id="whereM">تحت</span>، ثم «مشاركة».</small></span></li>
-    <li><span>انزل شوي واضغط <b>«إضافة إلى الشاشة الرئيسية»</b> <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg></span></span></li>
-    <li><span>اضغط <b>«إضافة»</b> فوق. خلاص! افتحه من شاشتك.</span></li>
-  </ol>
-  <div class="mock" aria-hidden="true"><svg viewBox="0 0 360 250" font-family="IBM Plex Sans Arabic,system-ui" direction="rtl">
-    <rect width="360" height="250" fill="#F2F2F7"/>
-    <rect x="18" y="14" width="324" height="142" rx="14" fill="#fff"/>
-    <text x="324" y="44" font-size="15" fill="#8E8E93" text-anchor="start">بطاقات التقويم</text>
-    <g><rect x="30" y="58" width="300" height="40" rx="10" fill="#E9F3FF" stroke="#0A84FF" stroke-width="2"/><text x="312" y="84" font-size="16" font-weight="700" fill="#111" text-anchor="start">إضافة إلى الشاشة الرئيسية</text><rect x="44" y="66" width="24" height="24" rx="6" fill="none" stroke="#111" stroke-width="2"/><path d="M56 72v12M50 78h12" stroke="#111" stroke-width="2"/></g>
-    <text x="312" y="128" font-size="15" fill="#111" text-anchor="start">نسخ</text><line x1="30" y1="104" x2="330" y2="104" stroke="#E5E5EA"/>
-    <rect x="0" y="182" width="360" height="68" fill="#F9F9F9"/><line x1="0" y1="182" x2="360" y2="182" stroke="#D1D1D6"/>
-    <g stroke="#0A84FF" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M40 210l-8 6 8 6"/><path d="M96 210l8 6-8 6"/><path d="M252 206h16v16h-16z"/><path d="M314 208h16v14h-16z"/></g>
-    <circle cx="180" cy="216" r="26" fill="none" stroke="#C2A061" stroke-width="3"><animate attributeName="r" values="22;28;22" dur="1.4s" repeatCount="indefinite"/></circle>
-    <g stroke="#0A84FF" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M180 202v16M174 208l6-6 6 6"/><path d="M171 214v12h18v-12"/></g>
-    <path d="M180 176 L180 160" stroke="#C2A061" stroke-width="3" marker-end="url(#a)"/><defs><marker id="a" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#C2A061"/></marker></defs>
-  </svg></div>
-  <div class="note" id="notSafari" hidden>فتحت الرابط من داخل برنامج ثاني (مثل واتساب). اضغط <b>«فتح في سفاري»</b> أو انسخ الرابط والصقه في سفاري، ثم سوّ الخطوات.</div>
-  <a class="big ghost" href="./#k=554894" style="margin-top:12px">فتح التطبيق بدون إضافة</a>
+  <h2>جهازك <span id="devN">آيفون</span></h2>
+  <p class="lead">تقدر تضيف التطبيق لشاشة جهازك، ويصير مثل أي تطبيق. اتبع الصور:</p>
+  <div class="note warn" id="notSafari" hidden>افتح الرابط في <b>سفاري</b> أول: اضغط «فتح في سفاري».</div>
+  <div class="shots">
+    <figure><img src="guide/ios1.png" alt=""><figcaption><i>١</i>اضغط <b>☰</b> تحت</figcaption></figure>
+    <figure><img src="guide/ios2.png" alt=""><figcaption><i>٢</i>اضغط <b>«مشاركة»</b></figcaption></figure>
+    <figure><img src="guide/ios3.png" alt=""><figcaption><i>٣</i>اضغط <b>«عرض المزيد»</b></figcaption></figure>
+    <figure><img src="guide/ios4.png" alt=""><figcaption><i>٤</i>اضغط <b>«إضافة إلى الشاشة الرئيسية»</b></figcaption></figure>
+    <figure><img src="guide/ios5.png" alt=""><figcaption><i>٥</i>اضغط <b>«إضافة»</b></figcaption></figure>
+    <figure><img src="guide/ios6.png" alt=""><figcaption><i>✓</i>افتحه من شاشتك</figcaption></figure>
+  </div>
+  <p class="small">ما لقيت <b>☰</b>؟ اضغط <b>•••</b> أو زر المشاركة <b>⇪</b> تحت.</p>
 </section>
 
 <section class="card" id="cDesk" hidden>
@@ -89,21 +90,16 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:10px 16px 30px}
 <section class="card"><h2>جدولك ينزل لحالك</h2><p style="margin:0">صوّر جدول زيارتك وأرسله واتساب لنفس الرقم اللي وصلك منه رابط التطبيق. منشئ التطبيق يضيفه، وتنزل حصصك عندك كاملة. ما تحتاج تضيف ولا شي. ولو حبيت تضيف زيارة أو حصة بنفسك، تقدر بعد.</p></section>
 <h2 class="sec">جولة بالفيديو</h2>
 <video controls playsinline preload="metadata" poster="guide/poster.jpg" src="guide/guide.mp4"></video>
-<p style="color:var(--mut);font-size:15px;margin:8px 4px 0">أهم الخطوات في أقل من ٣ دقايق، والشرح مكتوب على الشاشة كمان. وتحته كل التفاصيل بالصور.</p>
+<p style="color:var(--mut);font-size:15px;margin:8px 4px 0">أهم الخطوات في أقل من ٣ دقايق، والشرح مكتوب على الشاشة كمان.</p>
 
-<h2 class="sec">الجولة بالصور</h2>
-<div class="g" id="g"></div>
 </main>
 <footer>أي مشكلة؟ من داخل التطبيق: الإعدادات ← «ملاحظة لمنشئ التطبيق»</footer>
-<div class="arrow" id="arr">زر المشاركة تحت ↓</div>
 <script>
-var STEPS=[["t01-gate", "اضغط «دخول»", "أول مرة بس", "الدخول"], ["t02-login", "رقم جوالك والرقم السري", "تدخل مرة وحدة، والنت للحصص والمزامنة", "الدخول"], ["t03-home", "زيارة جديدة وتحديث الحصص", "تحت الترحيب، مع مدة اشتراكك", "الصفحة الرئيسية"], ["t04-tools", "أزرار فوق", "تكبير الخط، طريقة الاستخدام، الإعدادات", "الصفحة الرئيسية"], ["t04b-newvisit", "تضيف زيارة بنفسك", "اسم المدرسة والتاريخ والمرحلة", "الصفحة الرئيسية"], ["t05-news", "رسالة من منشئ التطبيق", "اقرأها واضغط «تمام»", "الصفحة الرئيسية"], ["t06-today", "حصص اليوم", "تنزل لحالها، ومكتوب مين معك", "زيارة اليوم"], ["t07-todaycards", "بطاقات اليوم", "المقابلات والوثائق المطلوبة منك اليوم", "زيارة اليوم"], ["t08-list", "كل زياراتك", "بحث، وفرز بالشهر", "الزيارات"], ["t09-day", "صفحة المدرسة", "كل بطاقة ونسبة إنجازها", "يوم الزيارة"], ["t09b-edit", "تعديل بيانات الزيارة", "تغيّر الاسم أو التاريخ أو المرحلة", "يوم الزيارة"], ["t09c-addcls", "تضيف حصة يدوي", "«إضافة حصة»", "يوم الزيارة"], ["t10-meta", "بيانات المعلم والحصة", "جاهزة من الجدول، وتقدر تعدّلها", "تعبئة البطاقة"], ["t11-ev", "علّم على الشواهد", "اللي شفتها في الحصة", "تعبئة البطاقة"], ["t12-score", "الدرجة تطلع لحالها", "حسب عدد الشواهد", "تعبئة البطاقة"], ["t13-override", "تبغى تغيّر الدرجة؟", "اضغط عليها، وترجع للتلقائي بضغطة", "تعبئة البطاقة"], ["t14-note", "ملاحظة على الفقرة", "وشواهد أخرى لو فيه", "تعبئة البطاقة"], ["t15-pen", "الكتابة بالقلم", "على كل فقرة، وملاحظات عامة آخر البطاقة", "تعبئة البطاقة"], ["t16-step", "الفقرة التالية", "أو تخطي الفقرة والرجوع لها بعدين", "تعبئة البطاقة"], ["t17-dots", "أرقام الفقرات", "تنقّل بينها، وتعرف وش باقي", "تعبئة البطاقة"], ["t18-modes", "طريقة العرض", "فقرة فقرة، أو كل الفقرات، أو مثل النموذج", "تعبئة البطاقة"], ["t19-form", "مثل النموذج", "نفس شكل الورقة", "تعبئة البطاقة"], ["t20-sum", "مختصر البطاقة", "بعد «إنهاء البطاقة»", "التقارير"], ["t21-multi", "المقابلات بمجموعات", "«إضافة مجموعة» لكل مجموعة", "بطاقات أخرى"], ["t22-sumall", "مختصر الزيارة كاملة", "ينبهك لو فيه فقرة بدون درجة", "التقارير"], ["t23-subj", "مختصر مادة معيّنة", "اختر المادة وتطلع حصصها بس", "التقارير"], ["t24-style", "اختر شكل التقرير", "مثل الورقة، أو جدول مختصر، أو البطاقة كاملة", "التقارير"], ["t25-preview", "الدرجة فقط أو مع الملاحظات", "وتشوفه قبل لا تحفظ", "التقارير"], ["t26-savepdf", "حفظ ملف أو طباعة", "«حفظ PDF» أو «طباعة»", "التقارير"], ["t27-export", "تصدير أكثر من مدرسة", "علّم على المدارس واطبعها مرة وحدة", "التقارير"], ["t28-week", "جدولي هذا الأسبوع", "من «ملخص الأسبوع»", "ملخص الأسبوع"], ["t29-weeksum", "أرقام الأسبوع", "المدارس والحصص ومتوسط كل بطاقة", "ملخص الأسبوع"], ["t30-weekpdf", "احفظ ملخص الأسبوع", "ملف أو طباعة", "ملخص الأسبوع"], ["t31-change", "المعلم غايب؟", "اكتب البديل واضغط «تأكيد التغيير»", "المعلم الغايب"], ["t32-stats", "إحصائياتي", "كم مدرسة وحصة قيّمت", "إحصائياتي"], ["t33-font", "حجم الخط والمظهر", "كبّر الخط، أو خلّه داكن", "الإعدادات"], ["t34-dark", "المظهر الداكن", "مريح للعين", "الإعدادات"], ["t35-tools", "أدواتي", "واتساب، ملاحظة، وتنبيه قبل الحصة", "الإعدادات"], ["t36-note", "ملاحظة لمنشئ التطبيق", "اكتب واضغط «إرسال»", "الإعدادات"], ["t37-pass", "تغيير الرقم السري", "وحسابك ومدة اشتراكك", "الإعدادات"], ["t38-backup", "نسخة احتياطية", "احفظ نسخة من شغلك، وترجعها وقت الحاجة", "الإعدادات"], ["t39-update", "تحديث التطبيق", "يتحدث لحاله، وهذا الزر للتأكيد", "الإعدادات"], ["t40-trash", "حذفت مدرسة بالغلط؟", "ترجع من «المحذوفات»", "المحذوفات"]];
-(function(){var o='',ch='',n=0;STEPS.forEach(function(s){if(s[3]!==ch){ch=s[3];o+='<h3 class="chap">'+ch+'</h3>'}n++;o+='<div class="gi"><div class="t">'+n+'. '+s[1]+'</div><div class="d">'+s[2]+'</div><img loading="lazy" src="guide/'+s[0]+'.jpg" alt="'+s[1]+'"></div>'});document.getElementById('g').innerHTML=o})();
 var ipad=/iPad/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);var ua=navigator.userAgent,ios=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1),and=/Android|HarmonyOS|HUAWEI/i.test(ua);
 var standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
 function show(id){document.getElementById(id).hidden=false}
 if(standalone){location.replace('./#k=554894')}
-else if(ios){show('cIOS');if(ipad){document.getElementById('devN').textContent='الآيباد';document.getElementById('whereS').textContent='فوق، جنب خانة الرابط';document.getElementById('whereM').textContent='فوق';document.getElementById('arr').textContent='زر المشاركة فوق ↑';document.getElementById('arr').style.bottom='auto';document.getElementById('arr').style.top='8px';}if(/CriOS|FxiOS|EdgiOS|FBAN|FBAV|Instagram|Line\//.test(ua))show('notSafari');else{var a=document.getElementById('arr');a.style.display='flex';setTimeout(function(){a.style.display='none'},9000)}}
+else if(ios){show('cIOS');if(ipad){document.getElementById('devN').textContent='آيباد';}if(/CriOS|FxiOS|EdgiOS|FBAN|FBAV|Instagram|Line\//.test(ua))show('notSafari');}
 else if(and){show('cAndroid')}else{show('cDesk')}
 var dp=null,ib=document.getElementById('inst');
 window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;});
