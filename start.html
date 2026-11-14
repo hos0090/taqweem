@@ -49,11 +49,19 @@ video{width:100%;border-radius:18px;background:#000;display:block}
 .small{font-size:16px;color:var(--mut);margin:12px 0 0!important}
 .note.warn{background:#FFF3DC;color:#5a3d00;font-size:18px;border:1px solid #E8C77A}
 @media (min-width:700px){.shots{grid-template-columns:repeat(3,minmax(0,1fr))}}
+#showInst{margin:0 0 16px;box-shadow:var(--sh)}.vcard video{margin-top:4px}
 [hidden]{display:none!important}
 footer{text-align:center;color:var(--mut);font-size:14px;padding:10px 16px 30px}
 </style></head><body>
 <header class="hero"><img src="icon-192.png" alt=""><h1>بطاقات التقويم</h1><p>تطبيق تعبئة بطاقات التقويم المدرسي</p></header>
 <main class="wrap">
+<section class="card vcard"><h2>شاهد الفيديو</h2>
+<video controls playsinline preload="metadata" poster="guide/poster.jpg" src="guide/guide.mp4"></video>
+<p style="color:var(--mut);font-size:15px;margin:10px 2px 0">أهم الخطوات في أقل من ٣ دقايق، والشرح مكتوب على الشاشة كمان.</p>
+
+</section>
+<button class="big gold huge" id="showInst">ثبّت التطبيق على جهازك</button>
+
 
 <section class="card" id="cAndroid" hidden>
   <h2>جوالك أندرويد</h2><p class="lead">اضغط الزر، وبعدها اضغط «تثبيت». ويطلع التطبيق في شاشة جوالك.</p>
@@ -88,10 +96,6 @@ footer{text-align:center;color:var(--mut);font-size:14px;padding:10px 16px 30px}
 <section class="card done" id="cDone"><b>التطبيق مثبّت ✓</b><p>افتحه من شاشة جوالك. اسمه «بطاقات التقويم».</p><a class="big" href="./#k=554894">فتح التطبيق</a></section>
 
 <section class="card"><h2>جدولك ينزل لحالك</h2><p style="margin:0">صوّر جدول زيارتك وأرسله واتساب لنفس الرقم اللي وصلك منه رابط التطبيق. منشئ التطبيق يضيفه، وتنزل حصصك عندك كاملة. ما تحتاج تضيف ولا شي. ولو حبيت تضيف زيارة أو حصة بنفسك، تقدر بعد.</p></section>
-<h2 class="sec">جولة بالفيديو</h2>
-<video controls playsinline preload="metadata" poster="guide/poster.jpg" src="guide/guide.mp4"></video>
-<p style="color:var(--mut);font-size:15px;margin:8px 4px 0">أهم الخطوات في أقل من ٣ دقايق، والشرح مكتوب على الشاشة كمان.</p>
-
 </main>
 <footer>أي مشكلة؟ من داخل التطبيق: الإعدادات ← «ملاحظة لمنشئ التطبيق»</footer>
 <script>
@@ -99,8 +103,10 @@ var ipad=/iPad/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&nav
 var standalone=(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;
 function show(id){document.getElementById(id).hidden=false}
 if(standalone){location.replace('./#k=554894')}
-else if(ios){show('cIOS');if(ipad){document.getElementById('devN').textContent='آيباد';}if(/CriOS|FxiOS|EdgiOS|FBAN|FBAV|Instagram|Line\//.test(ua))show('notSafari');}
-else if(and){show('cAndroid')}else{show('cDesk')}
+else if(ios){if(ipad){document.getElementById('devN').textContent='آيباد';}if(/CriOS|FxiOS|EdgiOS|FBAN|FBAV|Instagram|Line\//.test(ua))show('notSafari');}
+else if(!and){show('cDesk')}
+var sb=document.getElementById('showInst');if(!ios&&!and||standalone)sb.hidden=true;
+sb.onclick=function(){if(and&&dp){sb.hidden=true;dp.prompt();dp.userChoice.then(function(r){if(r.outcome==='accepted'){document.getElementById('cDone').style.display='block'}else{sb.hidden=false}dp=null});return}sb.hidden=true;var sec=document.getElementById(ios?'cIOS':'cAndroid');sec.hidden=false;sec.scrollIntoView({behavior:'smooth',block:'start'})};
 var dp=null,ib=document.getElementById('inst');
 window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;});
 setTimeout(function(){if(!dp&&and){/* المتصفح ما يدعم زر التثبيت المباشر: نعرض الخطوات */}},3000);
