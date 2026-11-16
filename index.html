@@ -21,13 +21,13 @@ var raw=null;
 function open(pin){var out=nacl.secretbox.open(raw.slice(40),raw.slice(16,40),kdf(pin,raw.slice(0,16)));if(!out)return false;
   var html=new TextDecoder().decode(fflate.inflateSync(out));try{localStorage.setItem(PK,pin)}catch(e){}
   document.open();document.write(html);document.close();return true}
-function ask(msg){$('m').textContent=msg||'اكتب الرقم السري اللي أعطاك إياه حسام. تكتبه هالمرة بس.';$('f').hidden=false;}
+function ask(msg){$('m').textContent=msg||'اكتب الرقم السري اللي أعطاك إياه منشئ التطبيق. تكتبه هالمرة بس.';$('f').hidden=false;}
 $('go').onclick=function(){var p=lat($('pin').value);if(!p){$('e').textContent='اكتب الرقم السري';return}
   $('go').disabled=true;$('go').textContent='لحظة…';setTimeout(function(){if(!open(p)){$('e').textContent='الرقم غلط، جرّب مرة ثانية';$('go').disabled=false;$('go').textContent='فتح'}},30)};
 $('pin').addEventListener('keydown',function(e){if(e.key==='Enter')$('go').click()});
 var hp=(location.hash.match(/k=([^&]+)/)||[])[1];if(hp){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
 fetch('app.enc').then(function(r){if(!r.ok)throw 0;return r.arrayBuffer()}).then(function(b){raw=new Uint8Array(b);var s='';if(hp){var hv=lat(decodeURIComponent(hp));if(open(hv))return;}try{s=localStorage.getItem(PK)||''}catch(e){}
-  if(s){setTimeout(function(){if(!open(s))ask('الرقم السري تغيّر. اكتب الرقم الجديد اللي أعطاك إياه حسام.')},20)}else ask();})
+  if(s){setTimeout(function(){if(!open(s))ask('الرقم السري تغيّر. اكتب الرقم الجديد اللي أعطاك إياه منشئ التطبيق.')},20)}else ask();})
  .catch(function(){$('m').textContent='أول مرة يحتاج إنترنت. اتصل بالواي فاي وافتح الصفحة مرة ثانية.'});
 })();
 </script></body></html>
